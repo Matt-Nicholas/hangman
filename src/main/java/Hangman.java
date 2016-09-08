@@ -7,6 +7,7 @@ class Game {
   private String[] mAnswer = {"testing"};
   //{"epicodus", "jazzy", "tyrannosaurus", "mango", "sandwich", "java"};
   private List<Character> mLettersUsed = new ArrayList<Character>();
+  public boolean mGameStatus = true;
 
   public int generateRandom(){
     Random randomGenerator = new Random();
@@ -14,13 +15,28 @@ class Game {
     return x;
   }
 
+  public List<Character> getLettersUsed() {
+    return mLettersUsed;
+  }
+
+  public void setLettersUsed(char letter){
+    mLettersUsed.add(letter);
+  }
+
   public class Hangman {
+    private int mNumberOfGuesses = 0;
     private String mWord;
     private char[] mWordArray;
     private List<Character> mBlanks = new ArrayList<Character>();
 
     public char[] getmWordArray(){
       return mWordArray;
+    }
+    public List<Character> getmBlanksArray(){
+      return mBlanks;
+    }
+    public int getmGuesses(){
+      return mNumberOfGuesses;
     }
 
     public String chooseWord(){
@@ -35,15 +51,19 @@ class Game {
       }
     }
 
-    public List<Character> checkForLetter(char letter){
+    public void checkForLetter(char letter){
+      int counter = 0;
       for (int i = 0; i < mWordArray.length ; ++i ) {
         if (letter == mWordArray[i]){
           mBlanks.set(i, letter);
+          counter ++;
         }
       }
-      return mBlanks;
+      if(counter == 0){mNumberOfGuesses += 1;}
     }
 
-
+    public boolean compareWordArrays(){
+      return mBlanks.contains('_');
+    }
   }
 }

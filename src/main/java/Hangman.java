@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 class Game {
-  private String[] mAnswer = {"testing"};
-  //{"epicodus", "jazzy", "tyrannosaurus", "mango", "sandwich", "java"};
+  private String[] mAnswer = {"epicodus", "jazzy", "tyrannosaurus", "mango", "sandwich", "java"};
   private List<Character> mLettersUsed = new ArrayList<Character>();
   public boolean mGameStatus = true;
 

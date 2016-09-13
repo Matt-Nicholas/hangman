@@ -5,7 +5,7 @@ import java.util.Random;
 
 class Game {
   private String[] mAnswer = {"epicodus", "jazzy", "tyrannosaurus", "mango", "sandwich", "java"};
-  private List<Character> mLettersUsed = new ArrayList<Character>();
+  public List<Character> mLettersUsed = new ArrayList<Character>();
   public boolean mGameStatus = true;
 
   public int generateRandom(){
@@ -26,7 +26,7 @@ class Game {
     private int mNumberOfGuesses = 0;
     private String mWord;
     private char[] mWordArray;
-    private List<Character> mBlanks = new ArrayList<Character>();
+    public List<Character> mBlanks = new ArrayList<Character>();
 
     public char[] getmWordArray(){
       return mWordArray;
@@ -64,5 +64,6 @@ class Game {
     public boolean compareWordArrays(){
       return mBlanks.contains('_');
     }
+
   }
 }
